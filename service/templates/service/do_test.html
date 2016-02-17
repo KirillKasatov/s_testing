@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends 'service/base.html' %}
+
+
+{% block title %}
+    Detail
+{% endblock %}
+
+
+{% block content %}
+    <h1>{{ question.text }}</h1>
+
+<div>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Ответить">
+    </form>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

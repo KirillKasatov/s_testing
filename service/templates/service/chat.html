@@ -1,0 +1,38 @@
+{#{% extends 'service/base.html' %}#}
+{#{% load staticfiles %}#}
+{#{% block title %}#}
+{#    Chat#}
+{#{% endblock %}#}
+{##}
+{##}
+{#{% block content %}#}
+{#    <form method="post" action="" id="FORM-ID">#}
+{#        {% csrf_token %}#}
+{#        {{ form.as_p }}#}
+{#        <input type="submit" value="Отправить"/>#}
+{#    </form>#}
+{##}
+{#    <div id="SOME-DIV">#}
+{##}
+{#    </div>#}
+{#{% endblock %}#}
+{##}
+{#{% block scripts %}#}
+{#    <script type="text/javascript">#}
+{#        var frm = $('#FORM-ID');#}
+{#        frm.submit(function () {#}
+{#            $.ajax({#}
+{#                type: frm.attr('method'),#}
+{#                url: frm.attr('action'),#}
+{#                data: frm.serialize(),#}
+{#                success: function (response) {#}
+{#                    $("#SOME-DIV").html(response);#}
+{#                },#}
+{#                error: function (response) {#}
+{#                    $("#MESSAGE-DIV").html("Something went wrong!");#}
+{#                }#}
+{#            });#}
+{#            return false;#}
+{#        });#}
+{#    </script>#}
+{#{% endblock %}#}

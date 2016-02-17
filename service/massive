@@ -1,0 +1,72 @@
+from copy import deepcopy, copy
+from pprint import pprint
+import random
+
+
+def get_ort():
+    i = []
+    for k in xrange(3):
+        k = random.randint(0, 9)
+        i.append(k)
+    return i
+
+
+# print(get_ort())
+
+def get_massive():
+    i = []
+    for k in xrange(3):
+        k = get_ort()
+        i.append(k)
+    return i
+
+
+# print get_massive()
+
+def true_massive():
+    i = []
+    for k in xrange(3):
+        k = get_massive()
+        i.append(k)
+    return i
+
+# print true_massive()
+
+W, L, H = 3, 3, 3
+
+
+class randint(int):
+    def __new__(cls, *args, **kwargs):
+        return super(randint, cls).__new__(cls, random.randint(0, 9))
+
+
+def narray(*args):
+    curr_arr = randint()
+    for d in args:
+        curr_arr = map(lambda x: deepcopy(curr_arr), xrange(d))
+    return curr_arr
+
+
+arr = narray(3, 3, 3, 3, 3)
+# arr[0][0][0][0][0] = 1
+arr1 = narray(W, L, H)
+
+
+def summ(a1, a2):
+    return [[[a1[z][y][x] + a2[z][y][x] for x in xrange(W)] for y in xrange(H)] for z in xrange(L)]
+
+#
+#
+# arr2 = summ(arr, arr1)
+# pprint(arr)
+# print '-----------'
+# pprint(arr1)
+# print '-----------'
+# pprint(arr2)
+
+
+some_list = map(randint, xrange(100))
+print some_list
+
+odd_list = [x for x in some_list if not x % 2]
+print(odd_list)
